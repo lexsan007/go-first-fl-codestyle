@@ -29,9 +29,9 @@ func defence(char_name, char_class string) string {
 		return fmt.Sprintf("%s блокировал %d урона.", char_name, 10+randint(-2, 2))
 	} else if char_class == "healer" {
 		return fmt.Sprintf("%s блокировал %d урона.", char_name, 10+randint(2, 5))
-	} else {
-		return "неизвестный класс персонажа"
 	}
+	return "неизвестный класс персонажа"
+
 }
 
 // обратите внимание на "if else" и на "else"
@@ -42,13 +42,13 @@ func special(charName, charClass string) string {
 		return fmt.Sprintf("%s применил специальное умение `Атака %d`", charName, 5+40)
 	} else if charClass == "healer" {
 		return fmt.Sprintf("%s применил специальное умение `Защита %d`", charName, 10+30)
-	} else {
-		return "неизвестный класс персонажа"
 	}
+	return "неизвестный класс персонажа"
+
 }
 
 // здесь обратите внимание на имена параметров
-func start_training(char_name, char_class string) string {
+func startTraining(char_name, char_class string) string {
 	if char_class == "warrior" {
 		fmt.Printf("%s, ты Воитель - отличный боец ближнего боя.\n", char_name)
 	}
@@ -89,7 +89,7 @@ func start_training(char_name, char_class string) string {
 }
 
 // обратите внимание на имя функции и имена переменных
-func choise_char_class() string {
+func choiseCharClass() string {
 	var approve_choice string
 	var char_class string
 
@@ -115,18 +115,18 @@ func main() {
 	fmt.Println("Приветствую тебя, искатель приключений!")
 	fmt.Println("Прежде чем начать игру...")
 
-	var char_name string
+	var charName string
 	fmt.Print("...назови себя: ")
-	fmt.Scanf("%s\n", &char_name)
+	fmt.Scanf("%s\n", &charName)
 
-	fmt.Printf("Здравствуй, %s\n", char_name)
+	fmt.Printf("Здравствуй, %s\n", charName)
 	fmt.Println("Сейчас твоя выносливость — 80, атака — 5 и защита — 10.")
 	fmt.Println("Ты можешь выбрать один из трёх путей силы:")
 	fmt.Println("Воитель, Маг, Лекарь")
 
-	char_class := choise_char_class()
+	charClass := choiseCharClass()
 
-	fmt.Println(start_training(char_name, char_class))
+	fmt.Println(startTraining(charName, charClass))
 }
 
 func randint(min, max int) int {
